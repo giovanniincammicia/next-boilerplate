@@ -1,0 +1,54 @@
+{
+	"atDirectives": [
+		{
+			"description": "Use the @tailwind directive to insert Tailwind’s `base`, `components`, `utilities`, and `screens` styles into your CSS.",
+			"name": "@tailwind",
+			"references": [
+				{
+					"name": "Tailwind’s 'Functions & Directives' documentation",
+					"url": "https://tailwindcss.com/docs/functions-and-directives/#tailwind"
+				}
+			]
+		},
+		{
+			"description": "Use @apply to inline any existing utility classes into your own custom CSS.",
+			"name": "@apply",
+			"references": [
+				{
+					"name": "Tailwind’s 'Functions & Directives' documentation",
+					"url": "https://tailwindcss.com/docs/functions-and-directives/#apply"
+				}
+			]
+		},
+		{
+			"description": "Use the @layer directive to tell Tailwind which “bucket” a set of custom styles belong to. Valid layers are base, components, and utilities.",
+			"name": "@layer",
+			"references": [
+				{
+					"name": "Tailwind’s 'Functions & Directives' documentation",
+					"url": "https://tailwindcss.com/docs/functions-and-directives/#layer"
+				}
+			]
+		},
+		{
+			"description": "Use @custom-variant to define custom variants for utility classes in Tailwind CSS.",
+			"name": "@custom-variant",
+			"references": [
+				{
+					"name": "Tailwind's Custom Variants documentation",
+					"url": "https://tailwindcss.com/docs/adding-custom-styles#using-custom-variants"
+				}
+			]
+		},
+		{
+			"description": "Use the @theme directive to access values from your Tailwind theme configuration.",
+			"name": "@theme",
+			"references": [
+				{
+					"name": "Tailwind’s 'Functions & Directives' documentation",
+					"url": "https://tailwindcss.com/docs/functions-and-directives/#theme"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,16 @@
+# https://github.com/evilmartians/lefthook/blob/master/docs/usage.md
+
+pre-commit:
+  parallel: true
+  commands:
+    check:
+      run: npx biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files} && git update-index --again
+    ts:
+      run: npx tsc --noEmit
+    branch:
+      run: git branch --show-current | grep -Pq '^feature/|^fix/|^config/|^chore/'
+      fail_text: Invalid branch name
+commit-msg:
+  commands:
+    lint-commit-msg:
+      run: npx commitlint --edit

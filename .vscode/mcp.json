@@ -1,0 +1,18 @@
+{
+	"inputs": [],
+	"servers": {
+		"postgres-mcp": {
+			"args": [
+				"run",
+				"-i",
+				"--rm",
+				"-e",
+				"DATABASE_URI=postgres://user:password@localhost:5432/database",
+				"crystaldba/postgres-mcp"
+			],
+			"command": "docker",
+			"env": {},
+			"type": "stdio"
+		}
+	}
+}
