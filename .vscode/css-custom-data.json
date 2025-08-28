@@ -1,11 +1,11 @@
 {
 	"atDirectives": [
 		{
-			"description": "Use the @tailwind directive to insert Tailwind’s `base`, `components`, `utilities`, and `screens` styles into your CSS.",
+			"description": "Use the @tailwind directive to insert Tailwind's `base`, `components`, `utilities`, and `screens` styles into your CSS.",
 			"name": "@tailwind",
 			"references": [
 				{
-					"name": "Tailwind’s 'Functions & Directives' documentation",
+					"name": "Tailwind's 'Functions & Directives' documentation",
 					"url": "https://tailwindcss.com/docs/functions-and-directives/#tailwind"
 				}
 			]
@@ -15,7 +15,7 @@
 			"name": "@apply",
 			"references": [
 				{
-					"name": "Tailwind’s 'Functions & Directives' documentation",
+					"name": "Tailwind's 'Functions & Directives' documentation",
 					"url": "https://tailwindcss.com/docs/functions-and-directives/#apply"
 				}
 			]
@@ -25,7 +25,7 @@
 			"name": "@layer",
 			"references": [
 				{
-					"name": "Tailwind’s 'Functions & Directives' documentation",
+					"name": "Tailwind's 'Functions & Directives' documentation",
 					"url": "https://tailwindcss.com/docs/functions-and-directives/#layer"
 				}
 			]
@@ -45,8 +45,18 @@
 			"name": "@theme",
 			"references": [
 				{
-					"name": "Tailwind’s 'Functions & Directives' documentation",
+					"name": "Tailwind's 'Functions & Directives' documentation",
 					"url": "https://tailwindcss.com/docs/functions-and-directives/#theme"
+				}
+			]
+		},
+		{
+			"description": "Use the @utility directive to create custom utility classes in Tailwind CSS.",
+			"name": "@utility",
+			"references": [
+				{
+					"name": "Tailwind's 'Functions & Directives' documentation",
+					"url": "https://tailwindcss.com/docs/functions-and-directives/#utility"
 				}
 			]
 		}

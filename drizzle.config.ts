@@ -7,5 +7,5 @@ export default defineConfig({
 	},
 	dialect: "postgresql",
 	out: "./drizzle",
-	schema: "./src/db/schema.ts",
+	schema: "./src/db/schema/*.ts",
 });

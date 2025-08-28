@@ -90,22 +90,25 @@ next-boilerplate/
    cp .env.example .env
    ```
 
-   Configure your database URL and other environment variables.
-
 4. **Set up the database**
 
    ```bash
-   pnpm db:generate
    pnpm db:migrate
    ```
 
-5. **Start the development server**
+5. **Add admin user**
+
+   ```bash
+   pnpm db:seed
+   ```
+
+6. **Start the development server**
 
    ```bash
    pnpm dev
    ```
 
-6. **Configure MCP servers**
+7. **Configure MCP servers**
     - Update the `DATABASE_URI` in `.vscode/mcp.json` to match your PostgreSQL configuration.
 
 ### Project Setup Documentation
@@ -193,8 +196,8 @@ You can find the documentation for database migrations in [db-migrations.md](doc
 
 **Migration Workflow:**
 
-1. Update schema in `src/db/schema.ts`
-2. Generate migration: `pnpm db:generate`
+1. Update schema in `src/db/schema/*.ts`
+2. Generate migration: `pnpm db:generate --name INSERT_NAME`
 3. Review generated SQL files
 4. Apply migration: `pnpm db:migrate`
 
@@ -226,3 +229,26 @@ npx shadcn-ui@latest add button
 - **Total TypeScript Reset**: Enhanced standard library types
 - **Drizzle Infer**: Automatic type inference for database operations
 - **Zod Validation**: Runtime type validation for environment variables
+
+## 🚀 Deploy
+
+This project uses [Release Please](https://github.com/googleapis/release-please) to automate versioning and changelog generation.
+
+### Config
+
+Set the default permissions for Github Actions:
+
+1. Go to [Github Settings/Actions](https://github.com/RSOA-Thierry-Pozzo/mncare-app/settings/actions)
+2. Go to Workflow permissions
+3. Check `Read and write permissions` and `Allow GitHub Actions to create and approve pull requests`
+
+### Automatic Release
+
+Release Please will automatically create a release branch and a PR when changes are pushed to the main branch.  
+This PR:
+
+- Updates your CHANGELOG.md
+- Bumps version numbers in package.json
+- Prepares a GitHub release tag
+
+When the PR is merged, a new release will be published.

@@ -1,7 +1,7 @@
 import { db } from "@/db";
-import { users } from "@/db/schema";
+import { TABLE_user } from "@/db/schema/auth";
 
 export default async function Home() {
-	const userData = await db.select().from(users);
+	const userData = await db.select().from(TABLE_user);
 	return <main>Hello world - {userData.length} users.</main>;
 }
