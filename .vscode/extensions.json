@@ -13,6 +13,7 @@
 		"docker.docker",
 		"davidanson.vscode-markdownlint",
 		"bierner.markdown-mermaid",
-		"yzhang.markdown-all-in-one"
+		"yzhang.markdown-all-in-one",
+		"mikestead.dotenv"
 	]
 }

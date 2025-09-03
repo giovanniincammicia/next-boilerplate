@@ -1,4 +1,7 @@
 {
+	"[css]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
 	"[javascript]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
@@ -13,15 +16,20 @@
 	},
 	"css.customData": [".vscode/css-custom-data.json"],
 	"editor.codeActionsOnSave": {
-		"quickfix.biome": "always",
-		"source.addMissingImports": "always",
-		"source.fixAll": "always",
-		"source.organizeImports.biome": "always",
-		"source.removeUnusedImports": "always"
+		"source.addMissingImports": "explicit",
+		"source.fixAll": "explicit",
+		"source.organizeImports.biome": "explicit",
+		"source.removeUnusedImports": "explicit"
 	},
 	"editor.formatOnSave": true,
 	"files.readonlyInclude": {},
 	"files.watcherExclude": {},
+	"github.copilot.chat.commitMessageGeneration.instructions": [
+		{
+			"text": "Your goal is to generate a commit message for the changes in the codebase. The commit message should be clear, concise, and follow conventional commit standards."
+		}
+	],
 	"search.exclude": {},
+	"tailwindCSS.classFunctions": ["cn", "cva", "cx", "clsx"],
 	"typescript.tsdk": "node_modules\\typescript\\lib"
 }

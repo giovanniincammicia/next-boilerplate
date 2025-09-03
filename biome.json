@@ -1,9 +1,8 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.1.1/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
 	"assist": {
 		"actions": {
 			"source": {
-				"recommended": true,
 				"useSortedAttributes": "on",
 				"useSortedKeys": "on",
 				"useSortedProperties": "on"
@@ -21,10 +20,7 @@
 		"domains": {
 			"next": "all"
 		},
-		"enabled": true,
-		"rules": {
-			"recommended": true
-		}
+		"enabled": true
 	},
 	"vcs": {
 		"clientKind": "git",

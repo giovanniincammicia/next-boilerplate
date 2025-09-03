@@ -10,7 +10,8 @@ pre-commit:
     branch:
       run: git branch --show-current | grep -Pq '^feature/|^fix/|^config/|^chore/'
       fail_text: Invalid branch name
-commit-msg:
-  commands:
-    lint-commit-msg:
-      run: npx commitlint --edit
+# TODO: commented because it was slow sometimes
+# commit-msg:
+#   commands:
+#     lint-commit-msg:
+#       run: npx commitlint --edit
