@@ -3,6 +3,7 @@
 import { useForm } from "@tanstack/react-form";
 import type { Route } from "next";
 import { useRouter, useSearchParams } from "next/navigation";
+import { toast } from "sonner";
 import { Form } from "@/components/form";
 import { TextInput } from "@/components/form/text-input";
 import { Button } from "@/components/ui/button";
@@ -22,8 +23,8 @@ export function LoginForm() {
 			password: "",
 		},
 		onSubmit: async ({ value }) => {
-			await ACTION_login(value);
-
+			const res = await ACTION_login(value);
+			if (!res.success) return toast.error("Login failed.");
 			router.push(redirectTo ? (decodeURIComponent(redirectTo) as Route) : PATHS.HOME);
 		},
 		validators: {
