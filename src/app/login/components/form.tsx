@@ -3,19 +3,13 @@
 import { useForm } from "@tanstack/react-form";
 import type { Route } from "next";
 import { useRouter, useSearchParams } from "next/navigation";
-import { z } from "zod";
 import { Form } from "@/components/form";
 import { TextInput } from "@/components/form/text-input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { authClient } from "@/lib/auth/client";
 import { PATHS } from "@/lib/paths";
-import { tryCatch } from "@/lib/utils";
-
-const schema = z.object({
-	email: z.email().min(1, "Email is required"),
-	password: z.string().min(1, "Password is required"),
-});
+import { ACTION_login } from "@/server/actions/auth/login";
+import { schema } from "@/server/actions/auth/login/schema";
 
 export function LoginForm() {
 	const router = useRouter();
@@ -28,13 +22,7 @@ export function LoginForm() {
 			password: "",
 		},
 		onSubmit: async ({ value }) => {
-			// TODO: transform this in a server action so you can log errors
-			const [error, result] = await tryCatch(authClient.signIn.email(value));
-			if (error || result.error) {
-				// TODO: Handle login error (show toast, set form error, etc.)
-				console.error("Login failed:", error || result.error);
-				return;
-			}
+			await ACTION_login(value);
 
 			router.push(redirectTo ? (decodeURIComponent(redirectTo) as Route) : PATHS.HOME);
 		},
