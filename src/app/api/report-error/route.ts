@@ -6,17 +6,10 @@ import { tryCatch } from "@/lib/utils";
 
 export async function POST(request: Request) {
 	async function handler() {
-		// TODO: userId is missing, get it from auth session
-		const baseError = {
-			component: "api/report-error",
-			url: request.referrer,
-			userAgent: request.headers.get("User-Agent") || undefined,
-		};
 		// Try to parse the JSON body
 		const [jsonError, body] = await tryCatch(request.json());
 		if (jsonError)
 			throw new GenericError({
-				...baseError,
 				message: "Failed to parse JSON",
 				metadata: {
 					body,
@@ -28,7 +21,6 @@ export async function POST(request: Request) {
 		const result = errorSchema.safeParse(body);
 		if (!result.success) {
 			throw new ValidationError({
-				...baseError,
 				issues: result.error.issues,
 				metadata: {
 					body,
@@ -36,10 +28,7 @@ export async function POST(request: Request) {
 			});
 		}
 
-		throw new ClientError({
-			...baseError,
-			...result.data,
-		});
+		throw new ClientError(result.data);
 	}
 
 	return apiWrapper(handler, () =>

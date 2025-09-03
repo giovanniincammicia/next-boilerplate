@@ -1,9 +1,12 @@
-import { db } from "@/db";
-import { TABLE_user } from "@/db/schema/auth";
+import { unauthorized } from "next/navigation";
+import { tryCatch } from "@/lib/utils";
+import { getUser } from "@/server/functions/auth";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-	const userData = await db.select().from(TABLE_user);
-	return <main>Hello world - {userData.length} users.</main>;
+	const [userError, user] = await tryCatch(getUser());
+	if (userError) unauthorized();
+
+	return <main>Hello {user.name}</main>;
 }

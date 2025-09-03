@@ -23,9 +23,9 @@ jobs:
     - uses: pnpm/action-setup@v4
       with:
         version: ${{ matrix.pnpm-version }}
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Generate ephemeral BETTER_AUTH_SECRET
       run: echo "BETTER_AUTH_SECRET=$(openssl rand -base64 32)" >> $GITHUB_ENV
-      run: echo $GITHUB_ENV
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}

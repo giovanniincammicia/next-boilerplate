@@ -19,8 +19,8 @@ export async function ACTION_getUsers(data: { filters: { name: string } }) {
 	async function handler() {
 		const parsed = schema.safeParse(data);
 		if (!parsed.success) throw new ValidationError({ issues: parsed.error.issues });
-
-		const whereClause = parsed.data.filters.name ? like(TABLE_user.name, parsed.data.filters.name) : undefined;
+		const { name } = parsed.data.filters;
+		const whereClause = name ? like(TABLE_user.name, name) : undefined;
 		const [error, users] = await tryCatch(db.select().from(TABLE_user).where(whereClause));
 		if (error) throw new DatabaseError({ message: error.message });
 
