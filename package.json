@@ -12,7 +12,8 @@
 		"ts": "pnpm exec tsc --noEmit",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
-		"db:seed": "pnpm dlx tsx scripts/seed-admin.ts"
+		"db:seed": "pnpm dlx tsx scripts/seed-admin.ts",
+		"test": "node -e \"process.exit(0)\""
 	},
 	"dependencies": {
 		"@radix-ui/react-label": "^2.1.7",
